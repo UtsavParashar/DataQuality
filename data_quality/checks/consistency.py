@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from data_quality_checks.data_quality_checks import DataQualityChecks
+from data_quality_checks import DataQualityChecks
 
 
 class ConsistencyChecks(DataQualityChecks):
@@ -52,6 +52,16 @@ class ConsistencyChecks(DataQualityChecks):
 
     # Unique Identifier Consistency
     def metrics_unique_identifiers(self, df, id_col):
+        """
+        Calculate the number of duplicate unique identifiers in the specified column.
+
+        Parameters:
+        df (pd.DataFrame): The dataframe to check.
+        id_col (str): The column name to check for unique identifiers.
+
+        Returns:
+        int: The number of duplicate unique identifiers.
+        """
         return df[id_col].duplicated().sum()
 
     def rules_unique_identifiers(self, df, id_col):
