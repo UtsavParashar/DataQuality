@@ -1,8 +1,7 @@
 import pytest
 import pandas as pd
-import sys
 
-from data_quality.checks import ConsistencyChecks
+from consistency import ConsistencyChecks
 
 class TestConsistencyChecks:
     @pytest.fixture(autouse=True)

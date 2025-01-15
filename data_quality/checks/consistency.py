@@ -142,3 +142,7 @@ class ConsistencyChecks(DataQualityChecks):
     def rules_column_name_consistency(self, df, historical_columns):
         inconsistent_cols = self.metrics_column_name_consistency(df, historical_columns)
         return len(inconsistent_cols) == 0, f"Inconsistent column names: {inconsistent_cols}"
+
+
+if __name__ == "__main__":
+    ConsistencyChecks().metrics('metrics_variance', pd.DataFrame({'value': [1, 2, 3, 4, 5]}), 'value')
